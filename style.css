@@ -442,21 +442,50 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Tạo bóng mờ tạo độ nổi */
 }
-
-/* Tự động điều chỉnh kích thước ảnh vừa khít khung chứa */
-.thiep_anh_item img {
+/* Khối bao ngoài: Giới hạn chiều rộng tối đa nhỏ hơn (chỉ 500px - 600px) */
+.thiep_anh_container {
     width: 100%;
-    height: auto; /* Giữ nguyên tỉ lệ ảnh không bị móp/méo */
-    max-width: 100%;
-    display: block;
-    object-fit: contain; /* Đảm bảo hiển thị trọn vẹn toàn bộ tấm thiệp */
+    max-width: 520px; /* Thu nhỏ độ rộng tổng thể lại */
+    margin: 25px auto; /* Căn giữa màn hình */
+    padding: 0 15px;
+    box-sizing: border-box;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* Thu hẹp khoảng cách giữa 2 ảnh */
 }
 
-/* Tối ưu cho màn hình điện thoại (Dưới 600px) */
+/* Khung từng ảnh thiệp */
+.thiep_anh_item {
+    flex: 1;
+    max-width: 240px; /* Giới hạn chiều rộng tối đa của mỗi tấm thiệp */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Tự động ôm sát khung và thu nhỏ ảnh */
+.thiep_anh_item img {
+    width: 100%;
+    height: auto;
+    max-height: 320px; /* Giới hạn chiều cao tối đa để không chiếm nhiều màn hình */
+    display: block;
+    object-fit: contain; /* Giữ nguyên toàn bộ nội dung thiệp không bị cắt */
+}
+
+/* Tối ưu trên điện thoại (Màn hình nhỏ) */
 @media (max-width: 600px) {
     .thiep_anh_container {
-        flex-direction: column; /* Xếp dọc 2 thiệp lên nhau giúp dễ đọc chữ trên điện thoại */
+        max-width: 320px; /* Trên điện thoại thu nhỏ hơn nữa */
         gap: 15px;
-        padding: 0 10px;
+    }
+
+    .thiep_anh_item {
+        max-width: 100%; /* Giữ kích thước vừa vặn khung hình điện thoại */
+    }
+
+    .thiep_anh_item img {
+        max-height: 280px; /* Khống chế chiều cao trên điện thoại */
     }
 }
