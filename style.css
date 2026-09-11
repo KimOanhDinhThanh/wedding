@@ -432,7 +432,7 @@ body {
    HIỂN THỊ THIỆP CƯỚI TO BẰNG ẢNH GIỚI THIỆU CHÚ RỂ
    ==================================================== */
 .thiep_anh_container {
-    width: 90%; /* Bằng với kích thước .gt_img */
+    width: 200%; /* Bằng với kích thước .gt_img */
     margin: 30px auto;
     display: flex;
     flex-direction: column;
@@ -441,14 +441,14 @@ body {
 }
 
 .thiep_anh_item {
-    width: 100%;
+    width: 150%;
     border-radius: 20px; /* Bo góc đồng bộ với ảnh chú rể */
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .thiep_anh_item img {
-    width: 100%;
+    width: 150%;
     height: auto;
     display: block;
     object-fit: cover;
