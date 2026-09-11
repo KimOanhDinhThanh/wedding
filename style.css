@@ -429,11 +429,10 @@ body {
     color: #333333;
 }
 /* ====================================================
-   CHO THIỆP CƯỚI TO BẰNG 100% CHIỀU RỘNG BẢN THIỆP/ẢNH CHÚ RỂ
+   HIỂN THỊ THIỆP CƯỚI THEO KÍCH THƯỚC TỈ LỆ GỐC
    ==================================================== */
 .thiep_anh_container {
-    width: 100%; /* Mở rộng toàn bộ chiều rộng thẻ chứa */
-    padding: 0 5%; /* Bóp lề 5% mỗi bên để rộng chuẩn 90% hệt như ảnh chú rể */
+    width: 90%; /* Bằng chiều rộng với ảnh chú rể (.gt_img) */
     margin: 30px auto;
     display: flex;
     flex-direction: column;
@@ -442,17 +441,15 @@ body {
 }
 
 .thiep_anh_item {
-    width: 100%; /* Cho thẻ chứa ảnh rộng tối đa */
-    border-radius: 20px; /* Bo góc 20px đồng bộ với ảnh chú rể */
+    width: 100%;
+    border-radius: 20px; /* Bo góc đồng bộ với ảnh chú rể */
     overflow: hidden;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
 }
 
 .thiep_anh_item img {
-    width: 100% !important; /* Bắt buộc ảnh tràn full 100% độ rộng */
-    max-width: 100% !important;
-    height: auto !important;
-    max-height: none !important; /* Bỏ giới hạn chiều cao cũ nếu có */
+    width: 100% !important;
+    height: auto !important; /* Tự động tính chiều cao theo đúng tỷ lệ gốc của ảnh */
     display: block;
-    object-fit: cover;
+    object-fit: contain !important; /* Giữ nguyên toàn bộ hình ảnh gốc không xén hình */
 }
