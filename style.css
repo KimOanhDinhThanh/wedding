@@ -428,43 +428,31 @@ body {
     margin-bottom: 10px;
     color: #333333;
 }
-/* Container chứa 2 ảnh thiệp */
+/* ====================================================
+   HIỂN THỊ TỪNG THIỆP CƯỚI NẰM DỌC (KÍCH THƯỚC LỚN)
+   ==================================================== */
 .thiep_anh_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px; /* Khoảng cách giữa 2 ảnh */
-    max-width: 800px;
+    width: 100%;
+    max-width: 650px; /* Độ rộng tối đa của thiệp khi hiển thị */
     margin: 30px auto;
-    padding: 0 16px;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column; /* Đặt các thiệp xếp chồng theo chiều dọc */
+    align-items: center;
+    gap: 25px; /* Khoảng cách giữa thiệp 1 và thiệp 2 */
 }
 
-/* Khung từng ảnh */
 .thiep_anh_item {
-    flex: 1;
-    overflow: hidden;
+    width: 100%;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng bóng đổ nhẹ */
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
 }
 
 .thiep_anh_item img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-/* Hiệu ứng phóng to nhẹ khi di chuột vào (trên PC) */
-.thiep_anh_item:hover img {
-    transform: scale(1.03);
-}
-
-/* Tối ưu hiển thị trên giao diện điện thoại */
-@media (max-width: 600px) {
-    .thiep_anh_container {
-        flex-direction: column; /* Xếp chồng 2 ảnh lên nhau trên màn hình nhỏ */
-        gap: 20px;
-    }
+    object-fit: contain;
 }
 
