@@ -428,3 +428,25 @@ body {
     margin-bottom: 10px;
     color: #333333;
 }
+.thiep_images_container {
+    display: flex;
+    flex-direction: column; /* Xếp 2 ảnh theo chiều dọc */
+    align-items: center;    /* Căn giữa các ảnh */
+    gap: 20px;              /* Khoảng cách giữa 2 ảnh */
+    padding: 30px 15px;     /* Khoảng cách lề trên/dưới 30px, hai bên 15px */
+    max-width: 600px;       /* Chiều rộng tối đa của khung chứa (phù hợp hiển thị dọc) */
+    margin: 0 auto;         /* Căn giữa khung chứa ra giữa màn hình */
+}
+
+.thiep_img_item {
+    width: 100%;            /* Chiếm toàn bộ chiều rộng của khung chứa */
+    max-width: 600px;       /* Giới hạn chiều rộng tối đa cho mỗi bức ảnh */
+}
+
+.thiep_img_item img {
+    width: 100%;            /* Co giãn theo chiều rộng thẻ cha */
+    height: auto;           /* Giữ đúng tỉ lệ khung hình, không bị méo */
+    border-radius: 6px;    /* Bo góc ảnh */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng bóng đổ mờ */
+    object-fit: cover;
+}
