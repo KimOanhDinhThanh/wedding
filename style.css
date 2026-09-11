@@ -429,30 +429,28 @@ body {
     color: #333333;
 }
 /* ====================================================
-   HIỂN THỊ TỪNG THIỆP CƯỚI NẰM DỌC (KÍCH THƯỚC LỚN)
+   HIỂN THỊ THIỆP CƯỚI TO BẰNG ẢNH GIỚI THIỆU CHÚ RỂ
    ==================================================== */
 .thiep_anh_container {
-    width: 100%;
-    max-width: 650px; /* Độ rộng tối đa của thiệp khi hiển thị */
+    width: 90%; /* Bằng với kích thước .gt_img */
     margin: 30px auto;
-    padding: 0 15px;
     display: flex;
-    flex-direction: column; /* Đặt các thiệp xếp chồng theo chiều dọc */
+    flex-direction: column;
     align-items: center;
-    gap: 25px; /* Khoảng cách giữa thiệp 1 và thiệp 2 */
+    gap: 20px;
 }
 
 .thiep_anh_item {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 20px; /* Bo góc đồng bộ với ảnh chú rể */
     overflow: hidden;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .thiep_anh_item img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 20px;
 }
-
