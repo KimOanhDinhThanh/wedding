@@ -467,7 +467,45 @@ body {
         gap: 8px;
         padding: 0 8px;
     }
+/* Container chứa 2 ảnh thiệp */
+.thiep_anh_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px; /* Khoảng cách giữa 2 ảnh */
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 16px;
+}
 
+/* Khung từng ảnh */
+.thiep_anh_item {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Tạo hiệu ứng bóng đổ nhẹ */
+}
+
+.thiep_anh_item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng phóng to nhẹ khi di chuột vào (trên PC) */
+.thiep_anh_item:hover img {
+    transform: scale(1.03);
+}
+
+/* Tối ưu hiển thị trên giao diện điện thoại */
+@media (max-width: 600px) {
+    .thiep_anh_container {
+        flex-direction: column; /* Xếp chồng 2 ảnh lên nhau trên màn hình nhỏ */
+        gap: 20px;
+    }
+}
     .thiep_anh_item img {
         max-height: 380px;
     }
