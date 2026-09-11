@@ -432,7 +432,7 @@ body {
    HIỂN THỊ THIỆP CƯỚI THEO KÍCH THƯỚC TỈ LỆ GỐC
    ==================================================== */
 .thiep_anh_container {
-    width: 90%; /* Bằng chiều rộng với ảnh chú rể (.gt_img) */
+    width: 150%; /* Bằng chiều rộng với ảnh chú rể (.gt_img) */
     margin: 30px auto;
     display: flex;
     flex-direction: column;
@@ -441,14 +441,14 @@ body {
 }
 
 .thiep_anh_item {
-    width: 100%;
+    width: 150%;
     border-radius: 20px; /* Bo góc đồng bộ với ảnh chú rể */
     overflow: hidden;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
 }
 
 .thiep_anh_item img {
-    width: 100% !important;
+    width: 150% !important;
     height: auto !important; /* Tự động tính chiều cao theo đúng tỷ lệ gốc của ảnh */
     display: block;
     object-fit: contain !important; /* Giữ nguyên toàn bộ hình ảnh gốc không xén hình */
