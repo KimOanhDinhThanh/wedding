@@ -420,3 +420,43 @@ body {
     margin-bottom: 10px;
     color: #333;
 }
+/* Khối bao ngoài tự động ôm vừa chiều rộng trang web */
+.thiep_anh_container {
+    width: 100%;
+    max-width: 900px; /* Giới hạn chiều rộng tối đa trên máy tính */
+    margin: 30px auto; /* Căn giữa màn hình */
+    padding: 0 15px; /* Tạo khoảng cách an toàn 2 bên mép màn hình di động */
+    box-sizing: border-box; /* Đảm bảo padding không làm tràn chiều rộng */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Khoảng cách giữa 2 ảnh */
+}
+
+/* Khung của từng ảnh */
+.thiep_anh_item {
+    flex: 1; /* Chia đều 2 cột bằng nhau */
+    width: 100%;
+    border-radius: 10px; /* Bo góc mềm mại */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Tạo bóng mờ tạo độ nổi */
+}
+
+/* Tự động điều chỉnh kích thước ảnh vừa khít khung chứa */
+.thiep_anh_item img {
+    width: 100%;
+    height: auto; /* Giữ nguyên tỉ lệ ảnh không bị móp/méo */
+    max-width: 100%;
+    display: block;
+    object-fit: contain; /* Đảm bảo hiển thị trọn vẹn toàn bộ tấm thiệp */
+}
+
+/* Tối ưu cho màn hình điện thoại (Dưới 600px) */
+@media (max-width: 600px) {
+    .thiep_anh_container {
+        flex-direction: column; /* Xếp dọc 2 thiệp lên nhau giúp dễ đọc chữ trên điện thoại */
+        gap: 15px;
+        padding: 0 10px;
+    }
+}
