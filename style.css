@@ -443,14 +443,6 @@ body {
     max-width: 480px;
 }
 
-.thiep_img_item img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-}
-
 @media (max-width: 768px) {
     .thiep_images_container {
         flex-direction: column;
