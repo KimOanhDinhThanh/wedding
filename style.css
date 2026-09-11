@@ -446,3 +446,45 @@ body {
         max-height: 280px;
     }
 }
+/* ====================================================
+   TĂNG KÍCH THƯỚC KHỐI 2 ẢNH THIỆP CƯỚI
+   ==================================================== */
+.thiep_anh_container {
+    width: 100%;
+    max-width: 680px; /* Tăng giới hạn chiều rộng tổng thể (cũ là 520px) */
+    margin: 30px auto;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px; /* Tăng khoảng cách giữa 2 ảnh */
+}
+
+.thiep_anh_item {
+    flex: 1;
+    max-width: 330px; /* Tăng kích thước rộng tối đa mỗi ảnh (cũ là 240px) */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.thiep_anh_item img {
+    width: 100%;
+    height: auto;
+    max-height: 500px; /* Tăng chiều cao tối đa cho ảnh (cũ là 320px) */
+    display: block;
+    object-fit: contain;
+}
+
+/* Tối ưu khi xem trên điện thoại màn hình nhỏ */
+@media (max-width: 600px) {
+    .thiep_anh_container {
+        max-width: 100%;
+        gap: 8px;
+        padding: 0 8px;
+    }
+
+    .thiep_anh_item img {
+        max-height: 380px;
+    }
+}
