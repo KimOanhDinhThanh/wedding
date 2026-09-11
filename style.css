@@ -34,8 +34,29 @@
 }
 
 /* ====================================================
-   2. NÚT ÂM THANH & CẤU TRÚC CHUNG
+   2. CẤU TRÚC CHUNG & NÚT ÂM THANH
    ==================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: #f0f8ff;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #audioIndicator {
     position: fixed;
     top: 10px;
@@ -52,27 +73,6 @@
     display: block;
 }
 
-html {
-    scroll-behavior: smooth;
-    background-color: #f0f8ff;
-    overflow-x: hidden;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    width: 100%;
-    max-width: 700px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 /* ====================================================
    3. PHẦN BÌA THIỆP & NỀN MỜ
    ==================================================== */
@@ -80,31 +80,24 @@ body {
     position: relative;
     width: 100%;
     overflow: hidden;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-@keyframes zoomInOut {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
 }
 
 .thiep::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url(./source/dau.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url(./source/dau.jpg) no-repeat center / cover;
     animation: zoomInOut 10s ease-in-out infinite;
     z-index: 0;
     transform-origin: center;
+}
+
+@keyframes zoomInOut {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .thiep_blur-bg {
@@ -115,7 +108,7 @@ body {
     background: rgba(125, 125, 125, 0.27);
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
-    color: white;
+    color: #ffffff;
     text-align: center;
     z-index: 1;
 }
@@ -123,9 +116,9 @@ body {
 .thiep_container {
     position: relative;
     z-index: 1;
-    color: white;
+    color: #ffffff;
     text-align: center;
-    text-shadow: 0 0 20px rgb(0, 0, 0);
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .thiep_des {
@@ -149,7 +142,7 @@ body {
 }
 
 /* ====================================================
-   4. PHẦN NGÀY THÁNG CỦA THIỆP
+   4. PHẦN NGÀY THÁNG
    ==================================================== */
 .thiep_date_box {
     margin-top: 36px;
@@ -157,7 +150,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    color: white;
+    color: #ffffff;
 }
 
 .hr-wrapper {
@@ -166,8 +159,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     height: 1px;
-    background-color: white;
-    border: white;
+    background-color: #ffffff;
+    border: none;
     width: 200px;
 }
 
@@ -193,7 +186,7 @@ body {
 .thiep_item hr {
     width: 100%;
     border: none;
-    border-top: 1px solid white;
+    border-top: 1px solid #ffffff;
     margin: 2px 0;
 }
 
@@ -221,7 +214,7 @@ body {
 }
 
 /* ====================================================
-   5. PHẦN ĐỊA ĐIỂM TỔ CHỨC (BỐ TRÍ 2 CỘT SONG SONG)
+   5. PHẦN ĐỊA ĐIỂM TỔ CHỨC
    ==================================================== */
 .thiep_add {
     position: relative;
@@ -237,10 +230,8 @@ body {
     margin-bottom: 10px;
 }
 
-/* Khối chia làm 2 cột bằng nhau */
 .location_grid {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
     gap: 8px;
@@ -248,10 +239,8 @@ body {
     width: 100%;
 }
 
-/* Cột đại diện Nhà Trai / Nhà Gái */
 .location_col {
     flex: 1;
-    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -259,7 +248,6 @@ body {
     text-align: center;
 }
 
-/* Khối chữ phía trên */
 .location_info {
     text-align: center;
     width: 100%;
@@ -267,13 +255,11 @@ body {
 }
 
 .location_info p {
-    text-align: center;
     margin: 2px 0;
 }
 
 .add_big {
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin: 4px 0;
     font-size: 14px;
     font-weight: bold;
 }
@@ -284,7 +270,6 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* Khối mã QR phía dưới */
 .location_qr {
     display: flex;
     flex-direction: column;
@@ -299,12 +284,9 @@ body {
     height: 140px;
     max-width: 100%;
     object-fit: contain;
-    
-    /* Thuật toán làm nét pixel giúp camera điện thoại quét dễ dàng */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     image-rendering: pixelated;
-    
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     background-color: #ffffff;
@@ -317,29 +299,55 @@ body {
     transform: scale(1.03);
 }
 
-/* Dòng chữ nhắc nhở dưới mã QR */
 .qr_hint {
     font-size: 10.5px;
     color: #ffffff;
     font-style: italic;
     margin-top: 5px;
-    text-align: center;
     opacity: 0.85;
     line-height: 13px;
 }
 
 .hr-add {
-    margin-top: 24px;
+    margin: 24px auto 0;
     height: 1px;
-    background-color: white;
+    background-color: #ffffff;
     width: 200px;
-    margin-left: auto;
-    margin-right: auto;
     border: none;
 }
 
 /* ====================================================
-   6. PHẦN GIỚI THIỆU & POP-UP
+   6. ẢNH THIỆP CƯỚI BỔ SUNG (ĐÃ TỐI ƯU KÍCH THƯỚC)
+   ==================================================== */
+.thiep_anh_container {
+    width: 100%;
+    max-width: 520px;
+    margin: 25px auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.thiep_anh_item {
+    flex: 1;
+    max-width: 240px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.thiep_anh_item img {
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+    display: block;
+    object-fit: contain;
+}
+
+/* ====================================================
+   7. PHẦN GIỚI THIỆU & POP-UP
    ==================================================== */
 .gt_container {
     margin-top: 32px;
@@ -383,6 +391,10 @@ body {
     display: block;
 }
 
+.gt_img.show {
+    animation: fadeInUp 1.8s ease forwards;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -392,10 +404,6 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.gt_img.show {
-    animation: fadeInUp 1.8s ease forwards;
 }
 
 .btn_group {
@@ -418,74 +426,23 @@ body {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
-}
-/* Khối bao ngoài tự động ôm vừa chiều rộng trang web */
-.thiep_anh_container {
-    width: 100%;
-    max-width: 900px; /* Giới hạn chiều rộng tối đa trên máy tính */
-    margin: 30px auto; /* Căn giữa màn hình */
-    padding: 0 15px; /* Tạo khoảng cách an toàn 2 bên mép màn hình di động */
-    box-sizing: border-box; /* Đảm bảo padding không làm tràn chiều rộng */
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px; /* Khoảng cách giữa 2 ảnh */
+    color: #333333;
 }
 
-/* Khung của từng ảnh */
-.thiep_anh_item {
-    flex: 1; /* Chia đều 2 cột bằng nhau */
-    width: 100%;
-    border-radius: 10px; /* Bo góc mềm mại */
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Tạo bóng mờ tạo độ nổi */
-}
-/* Khối bao ngoài: Giới hạn chiều rộng tối đa nhỏ hơn (chỉ 500px - 600px) */
-.thiep_anh_container {
-    width: 100%;
-    max-width: 520px; /* Thu nhỏ độ rộng tổng thể lại */
-    margin: 25px auto; /* Căn giữa màn hình */
-    padding: 0 15px;
-    box-sizing: border-box;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px; /* Thu hẹp khoảng cách giữa 2 ảnh */
-}
-
-/* Khung từng ảnh thiệp */
-.thiep_anh_item {
-    flex: 1;
-    max-width: 240px; /* Giới hạn chiều rộng tối đa của mỗi tấm thiệp */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-}
-
-/* Tự động ôm sát khung và thu nhỏ ảnh */
-.thiep_anh_item img {
-    width: 100%;
-    height: auto;
-    max-height: 320px; /* Giới hạn chiều cao tối đa để không chiếm nhiều màn hình */
-    display: block;
-    object-fit: contain; /* Giữ nguyên toàn bộ nội dung thiệp không bị cắt */
-}
-
-/* Tối ưu trên điện thoại (Màn hình nhỏ) */
+/* ====================================================
+   8. RESPONSIVE MOBILE
+   ==================================================== */
 @media (max-width: 600px) {
     .thiep_anh_container {
-        max-width: 320px; /* Trên điện thoại thu nhỏ hơn nữa */
+        max-width: 320px;
         gap: 15px;
     }
 
     .thiep_anh_item {
-        max-width: 100%; /* Giữ kích thước vừa vặn khung hình điện thoại */
+        max-width: 100%;
     }
 
     .thiep_anh_item img {
-        max-height: 280px; /* Khống chế chiều cao trên điện thoại */
+        max-height: 280px;
     }
 }
