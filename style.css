@@ -428,24 +428,3 @@ body {
     margin-bottom: 10px;
     color: #333333;
 }
-.thiep_images_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 30px 15px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.thiep_img_item {
-    flex: 1;
-    max-width: 480px;
-}
-
-@media (max-width: 768px) {
-    .thiep_images_container {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
